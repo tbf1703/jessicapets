@@ -4,10 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description"
-        content="Pet Shop completo com produtos de qualidade para seu animal de estimação. Rações, acessórios e serviços de banho e tosa.">
-    <meta name="keywords"
-        content="pet shop, ração para cachorro, ração para gato, banho e tosa, produtos pets, animais de estimação">
+    <meta name="description" content="Pet Shop completo com produtos de qualidade para seu animal de estimação. Rações, acessórios e serviços de banho e tosa.">
+    <meta name="keywords" content="pet shop, ração para cachorro, ração para gato, banho e tosa, produtos pets, animais de estimação">
     <meta name="author" content="Jessica Pets">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="Jessica Pets - Tudo para seu animal de estimação">
@@ -19,21 +17,840 @@
     <title>Jessica Pets</title>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="imagens/jessicapetstransparente.png">
-    <link rel="shortcut icon" href="imagens/jessicapetstransparente.png">
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/favicon-96x96.png">
+    <link rel="shortcut icon" href="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/favicon.ico">
+    <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/apple-touch-icon.png">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* ===== RESET & ROOT ===== */
+        :root {
+            --primary-color: #b94754;
+            --secondary-color: #996130;
+            --accent-color: #996130;
+            --light-color: #ffe8d8;
+            --dark-color: #333333;
+            --text-color: #444444;
+            --white: #ffffff;
+            --gray-light: #e0e0e0;
+            --gray-medium: #a0a0a0;
+            --gray-dark: #666666;
+            --font-main: 'Poppins', sans-serif;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            --border-radius: 8px;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #865f97;
+            transform: translateY(-3px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #865f97;
+        }
+
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            color: var(--dark-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: var(--box-shadow);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+        }
+
+        .nav-menu li {
+            margin-left: 2rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        /* ===== HERO ===== */
+        #inicio {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/caesegatos.png') no-repeat center center/cover;
+            color: var(--white);
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* ===== ABOUT ===== */
+        #sobre {
+            background-color: var(--white);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            min-height: 300px;
+            object-fit: cover;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-features {
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-right: 1rem;
+            margin-top: 0.3rem;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        #depoimentos {
+            background-color: var(--light-color);
+        }
+
+        .testimonials-container {
+            position: relative;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .testimonials-slider {
+            display: flex;
+            transition: transform 0.5s ease;
+            padding: 1rem 0;
+        }
+
+        .testimonial-card {
+            min-width: 100%;
+            padding: 0 1rem;
+            transition: var(--transition);
+        }
+
+        .testimonial-inner {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            text-align: center;
+        }
+
+        .testimonial-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid var(--primary-color);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .testimonial-rating {
+            color: var(--secondary-color);
+            margin-top: 0.5rem;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .slider-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--gray-light);
+            margin: 0 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary-color);
+        }
+
+        /* ===== PRODUCTS ===== */
+        #produtos {
+            background-color: var(--white);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background-color: var(--light-color);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .product-img {
+            height: 200px;
+            width: 100%;
+            object-fit: contain;
+            background: #f0e3d8;
+            padding: 1rem;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-brand {
+            display: inline-block;
+            font-size: 0.9rem;
+            color: var(--gray-medium);
+            margin-bottom: 0.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        /* ===== CONTACT ===== */
+        #contato {
+            background-color: var(--light-color);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .contact-text h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: var(--dark-color);
+        }
+
+        .contact-text .reference {
+            font-size: 0.95rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-top: 0.3rem;
+        }
+
+        .whatsapp-order-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: var(--transition);
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+
+        .whatsapp-order-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(18, 140, 126, 0.3);
+        }
+
+        .contact-form .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--gray-light);
+            border-radius: var(--border-radius);
+            font-family: inherit;
+            transition: var(--transition);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(185, 71, 84, 0.2);
+        }
+
+        .contact-form textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== MAP ===== */
+        .map-container {
+            height: 400px;
+            margin-top: 2rem;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ===== HISTORY ===== */
+        #historia {
+            background-color: var(--white);
+        }
+
+        .history-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .history-img {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+        }
+
+        .history-img img {
+            width: 100%;
+            height: auto;
+            min-height: 250px;
+            object-fit: cover;
+        }
+
+        .history-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+
+        .history-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .milestones {
+            margin-top: 2rem;
+        }
+
+        .milestone-item {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .milestone-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 15px;
+            height: 15px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .milestone-item::after {
+            content: '';
+            position: absolute;
+            left: 7px;
+            top: 1.5rem;
+            bottom: -1.5rem;
+            width: 1px;
+            background-color: var(--gray-light);
+        }
+
+        .milestone-item:last-child::after {
+            display: none;
+        }
+
+        .milestone-year {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.3rem;
+        }
+
+        .milestone-item .milestone-description {
+            font-style: italic;
+            color: var(--gray-dark);
+        }
+
+        .milestone-item .milestone-highlight {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--white);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col {
+            text-align: center;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col ul {
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .footer-col ul li a {
+            padding: 0.5rem;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom .developer {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .footer-bottom .developer a {
+            color: var(--primary-color);
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .footer-bottom .developer a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* ===== FLOATING BUTTONS ===== */
+        .floating-btn {
+            position: fixed;
+            right: 2rem;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            font-size: 1.8rem;
+            color: var(--white);
+        }
+
+        .whatsapp-btn {
+            bottom: 2rem;
+            background-color: #25D366;
+        }
+
+        .instagram-btn {
+            bottom: calc(2rem + 65px + 15px);
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+        }
+
+        .back-to-top {
+            bottom: calc(2rem + (65px * 2) + (15px * 2));
+            background-color: var(--primary-color);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            filter: brightness(1.05);
+        }
+
+        .floating-btn:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse-animation {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .whatsapp-btn, 
+        .instagram-btn {
+            animation: pulse-animation 2s ease-in-out 1s infinite;
+        }
+
+        .whatsapp-btn:hover,
+        .instagram-btn:hover {
+            animation-play-state: paused;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media screen and (max-width: 992px) {
+            .about-container,
+            .history-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about-img,
+            .history-img {
+                order: -1;
+            }
+
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                transition: var(--transition);
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .footer-col ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .whatsapp-btn {
+                bottom: 1.5rem;
+            }
+
+            .instagram-btn {
+                bottom: calc(1.5rem + 50px + 12px);
+            }
+
+            .back-to-top {
+                bottom: calc(1.5rem + (50px * 2) + (12px * 2));
+            }
+        }
+
+        @media screen and (max-width: 576px) {
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- ===== HEADER ===== -->
     <header>
         <div class="header-container container">
             <a href="#inicio" class="logo">
-                <span><img src="imagens/jessicapetstransparente.png" width="100" height="100" alt="Jessica Pets Logo"></span>
+                <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/jessicapetstransparente.png" alt="Jessica Pets Logo">
             </a>
             <nav>
                 <ul class="nav-menu">
@@ -52,7 +869,7 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- ===== HERO ===== -->
     <section id="inicio" class="section">
         <div class="hero-content container">
             <h1>Tudo que seu pet precisa em um só lugar</h1>
@@ -64,7 +881,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- ===== SOBRE ===== -->
     <section id="sobre" class="section">
         <div class="container">
             <h2 class="section-title">Sobre</h2>
@@ -75,27 +892,21 @@
                     <p>Oferecemos uma ampla variedade de produtos das melhores marcas do mercado, além do melhor e mais acolhedor atendimento tanto para você quanto para o seu pet.</p>
                     <div class="about-features">
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
                             <div>
                                 <h3>Produtos de Qualidade</h3>
                                 <p>Trabalhamos apenas com marcas reconhecidas e testadas.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
                             <div>
                                 <h3>Profissionais Qualificados</h3>
                                 <p>Estamos sempre em busca do melhor atendimento aos nossos clientes.</p>
                             </div>
                         </div>
                         <div class="feature-item">
-                            <div class="feature-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
+                            <div class="feature-icon"><i class="fas fa-check-circle"></i></div>
                             <div>
                                 <h3>Atendimento Personalizado</h3>
                                 <p>Cada tutor e animal, recebem atenção individualizada.</p>
@@ -104,13 +915,13 @@
                     </div>
                 </div>
                 <div class="about-img">
-                    <img src="imagens/jessicaeosbichos.png" alt="Equipe do Pet Shop">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/jessicaeosbichos.png" alt="Equipe do Pet Shop">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
+    <!-- ===== DEPOIMENTOS ===== -->
     <section id="depoimentos" class="section">
         <div class="container">
             <h2 class="section-title">Depoimentos</h2>
@@ -118,71 +929,51 @@
                 <div class="testimonials-slider" id="testimonialsSlider">
                     <div class="testimonial-card">
                         <div class="testimonial-inner">
-                            <img src="imagens/clienterita.png" alt="Cliente Rita Franco" class="testimonial-img">
+                            <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/clienterita.png" alt="Cliente Rita Franco" class="testimonial-img">
                             <p class="testimonial-text">"Um lugar diferenciado, bom atendimento, produtos de boa qualidade! Vá conferir, lá vc encontra tudo para o seu pet!"</p>
                             <h4 class="testimonial-author">Rita Franco</h4>
                             <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="testimonial-inner">
-                            <img src="imagens/clientedazy.png" alt="Cliente Dazy Dazy" class="testimonial-img">
+                            <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/clientedazy.png" alt="Cliente Dazy Dazy" class="testimonial-img">
                             <p class="testimonial-text">"Local muito organizado, produtos de qualidade e ótimo preço, atendimentos maravilhosos, gentis e atenciosos. Voltarei mais vezes."</p>
                             <h4 class="testimonial-author">Dazy dazy</h4>
                             <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="testimonial-inner">
-                            <img src="imagens/clienteerica.png" alt="Cliente Erica Martins" class="testimonial-img">
+                            <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/clienteerica.png" alt="Cliente Erica Martins" class="testimonial-img">
                             <p class="testimonial-text">"O melhor pet da região com certeza, preços justos e atendimento de qualidade e humanizado sem falar como Jessica é maravilhosa nas indicações de rações e tudo mais!"</p>
                             <h4 class="testimonial-author">Erica Martins</h4>
                             <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star-half-alt"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="testimonial-inner">
-                            <img src="imagens/clientekauan.png" alt="Cliente Kauan Rosendo" class="testimonial-img">
+                            <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/clientekauan.png" alt="Cliente Kauan Rosendo" class="testimonial-img">
                             <p class="testimonial-text">"Muito bom excelente atendimento ótimo"</p>
                             <h4 class="testimonial-author">Kauan Rosendo da Silva</h4>
                             <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
                         <div class="testimonial-inner">
-                            <img src="imagens/IMG_5996.JPG" alt="Cliente Tiago Bernardes" class="testimonial-img">
+                            <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/IMG_5996.JPG" alt="Cliente Tiago Bernardes" class="testimonial-img">
                             <p class="testimonial-text">"Sou representante de vendas de uma marca e em cada visita na loja da Jéssica, me surpreendo com a proporção e o mix de produtos que a Jéssica tem em sua loja. Sucesso sempre!!!"</p>
                             <h4 class="testimonial-author">Tiago Bernardes</h4>
                             <div class="testimonial-rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
                             </div>
                         </div>
                     </div>
@@ -198,13 +989,13 @@
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- ===== PRODUTOS ===== -->
     <section id="produtos" class="section">
         <div class="container">
             <h2 class="section-title">As Melhores Marcas</h2>
             <div class="products-grid">
                 <div class="product-card">
-                    <img src="imagens/magnus1.png" alt="Magnus" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/magnus1.png" alt="Magnus" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Magnus</span>
                         <h3 class="product-title">Carinho em Cada Refeição</h3>
@@ -212,7 +1003,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/purina2.png" alt="Purina" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/purina2.png" alt="Purina" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Purina</span>
                         <h3 class="product-title">Confiança que Alimenta Gerações</h3>
@@ -220,7 +1011,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/pedigree3.png" alt="Pedigree" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/pedigree3.png" alt="Pedigree" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Pedigree</span>
                         <h3 class="product-title">Amor que Nutre de Verdade</h3>
@@ -228,7 +1019,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/golden4.png" alt="Golden" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/golden4.png" alt="Golden" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Golden</span>
                         <h3 class="product-title">Excelência que seu Pet Sente</h3>
@@ -236,7 +1027,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/specialdog5.png" alt="Special Dog" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/specialdog5.png" alt="Special Dog" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Special Dog</span>
                         <h3 class="product-title">Qualidade Premium ao Alcance</h3>
@@ -244,7 +1035,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/megusta6.png" alt="Ração Me Gusta" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/megusta6.png" alt="Ração Me Gusta" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Ração Me Gusta</span>
                         <h3 class="product-title">Sabor que Encanta a Primeira Mordida</h3>
@@ -252,7 +1043,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/imbramil7.png" alt="Imbramil" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/imbramil7.png" alt="Imbramil" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Imbramil</span>
                         <h3 class="product-title">Energia Direto da Natureza</h3>
@@ -260,7 +1051,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/suprapet8.png" alt="Suprapet" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/suprapet8.png" alt="Suprapet" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Suprapet</span>
                         <h3 class="product-title">Equilíbrio em Forma de Ração</h3>
@@ -268,7 +1059,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/granplus9.png" alt="Granplus" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/granplus9.png" alt="Granplus" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Granplus</span>
                         <h3 class="product-title">Para Quem Ama com Exigência</h3>
@@ -276,7 +1067,7 @@
                     </div>
                 </div>
                 <div class="product-card">
-                    <img src="imagens/origens10.png" alt="Origens" class="product-img" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/origens10.png" alt="Origens" class="product-img" loading="lazy">
                     <div class="product-content">
                         <span class="product-brand">Origens</span>
                         <h3 class="product-title">Conexão com o Essencial</h3>
@@ -287,50 +1078,43 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- ===== CONTATO ===== -->
     <section id="contato" class="section">
         <div class="container">
             <h2 class="section-title">Entre em Contato</h2>
             <div class="contact-container">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <div class="contact-text">
                             <h3>Endereço</h3>
-                            <p>Rua Afrânio de Melo Franco, 140A - Afrânio, Pernambuco - PE</p>
+                            <p>Rua Eugênio Franciso de Macedo, 138 - Dormentes, Pernambuco - PE</p>
+                            <p class="reference"><i class="fas fa-location-dot"></i> Em frente à Lanchonete Rosa de Saron</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone-alt"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
                         <div class="contact-text">
                             <h3>Telefone</h3>
                             <p>(11) 98638-6054</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
                         <div class="contact-text">
                             <h3>Email</h3>
                             <p>jessicaephelipe@outlook.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
                         <div class="contact-text">
                             <h3>Horário de Funcionamento</h3>
                             <p>Segunda a Sexta: 9h às 20h<br>Sábado: 9h às 17h</p>
                             <p>Domingo: 9h às 13h</p>
                         </div>
                     </div>
-                    <div style="text-align: left;">
+                    <div>
                         <a href="https://wa.me/5511988887726?text=Olá, vim pelo *site e gostaria de fazer um pedido para entrega.*" class="whatsapp-order-btn">
                             <i class="fab fa-whatsapp"></i> Peça pelo WhatsApp
                         </a>
@@ -360,18 +1144,24 @@
                     <button type="submit" class="btn">Enviar Mensagem</button>
                 </form>
             </div>
-            <section id="localizacao" class="section">
-                <div class="container">
+
+            <!-- ===== LOCALIZAÇÃO ===== -->
+            <section id="localizacao" class="section" style="padding-top: 3rem;">
+                <div class="container" style="padding:0;">
                     <h2 class="section-title">Nossa Localização</h2>
+                    <p style="text-align: center; margin-bottom: 1.5rem; font-size: 1.1rem;">
+                        <i class="fas fa-map-pin" style="color: var(--primary-color);"></i> 
+                        Estamos localizados em frente à <strong>Lanchonete Rosa de Saron</strong>
+                    </p>
                     <div class="map-container">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3945.834177990968!2d-41.00856922579782!3d-8.515475786236005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x775c90e648783ed%3A0xefb4431619cd0edf!2sR.%20Afr%C3%A2nio%20de%20Melo%20Franco%2C%20140%20-%20Afr%C3%A2nio%2C%20PE%2C%2056360-000!5e0!3m2!1spt-BR!2sbr!4v1774098891489!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.5111604154336!2d-40.76924592595687!3d-8.44956868538912!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x775a4ed871c74bf%3A0xcdce425daebb639f!2sR.%20Eugenio%20Francisco%20de%20Macedo%2C%20138%20-%20Dormentes%2C%20PE%2C%2056355-000!5e0!3m2!1spt-BR!2sbr!4v1786644732003!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
                     </div>
                 </div>
             </section>
         </div>
     </section>
 
-    <!-- History Section -->
+    <!-- ===== HISTÓRIA ===== -->
     <section id="historia" class="section">
         <div class="container">
             <h2 class="section-title">Nossa História</h2>
@@ -385,16 +1175,24 @@
                             <div class="milestone-year">2025</div>
                             <p>Iniciamos nossa jornada em uma loja pequena mas com objetivo grande. <strong>Um sonho que vêm se alimentando a muitos anos atrás.</strong></p>
                         </div>
+                        <div class="milestone-item">
+                            <div class="milestone-year">2026</div>
+                            <p>
+                                <span class="milestone-highlight">Chegamos em Pernambuco!</span> 
+                                Mudamos de endereço, mas <strong>o amor pelos animais e a qualidade no atendimento continuam os mesmos</strong>. 
+                                <span class="milestone-description">"O endereço mudou, mas o carinho que nos move continua sendo o mesmo: o seu pet em primeiro lugar."</span>
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <div class="history-img">
-                    <img src="imagens/fachadajessicapets.png" alt="Fachada da Jessica Pets" loading="lazy">
+                    <img src="https://raw.githubusercontent.com/ber-digitall/jessicapets/acfc47f47864b3a69565d2098e6024a7ed11fb7a/imagens/fachadajessicapets.png" alt="Fachada da Jessica Pets" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -414,34 +1212,161 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 / 2026 Jessica Pets. Pernambuco - PE</p>
-                <p style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.8;">
-                    Desenvolvido por <a href="https://berdigitall.vercel.app" target="_blank">Ber Digital - Criação de Sites</a>
-                </p>
+                <div class="developer">
+                    Desenvolvido por <a href="https://berdigitall.com.br" target="_blank">Ber Digitall - Soluções Digitais</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Floating Buttons -->
+    <!-- ===== FLOATING BUTTONS ===== -->
     <a href="https://wa.me/5511986386054?text=Olá, vim pelo *site e gostaria de saber mais.*" 
-    class="floating-btn whatsapp-btn" 
-    target="_blank" 
-    aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+       class="floating-btn whatsapp-btn" 
+       target="_blank" 
+       aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
     </a>
 
     <a href="https://www.instagram.com/petshop_jessicapets" 
-    class="floating-btn instagram-btn" 
-    target="_blank" 
-    aria-label="Instagram">
-    <i class="fab fa-instagram"></i>
+       class="floating-btn instagram-btn" 
+       target="_blank" 
+       aria-label="Instagram">
+        <i class="fab fa-instagram"></i>
     </a>
 
     <a href="#inicio" 
-    class="floating-btn back-to-top" 
-    aria-label="Voltar ao topo">
-    <i class="fas fa-arrow-up"></i>
+       class="floating-btn back-to-top" 
+       aria-label="Voltar ao topo">
+        <i class="fas fa-arrow-up"></i>
     </a>
 
-    <script src="script.js"></script>
+    <!-- ===== SCRIPT ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', () => {
+                    if (hamburger) {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // Testimonials Slider
+            const slider = document.getElementById('testimonialsSlider');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentIndex = 0;
+            const testimonialCount = document.querySelectorAll('.testimonial-card').length;
+
+            function updateSlider() {
+                if (slider) {
+                    slider.style.transform = 'translateX(-' + (currentIndex * 100) + '%)';
+                }
+                dots.forEach((dot, index) => {
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                    } else {
+                        dot.classList.remove('active');
+                    }
+                });
+            }
+
+            dots.forEach(dot => {
+                dot.addEventListener('click', () => {
+                    currentIndex = parseInt(dot.getAttribute('data-index'));
+                    updateSlider();
+                });
+            });
+
+            let slideInterval = setInterval(() => {
+                currentIndex = (currentIndex + 1) % testimonialCount;
+                updateSlider();
+            }, 5000);
+
+            const sliderContainer = document.querySelector('.testimonials-container');
+            if (sliderContainer) {
+                sliderContainer.addEventListener('mouseenter', () => {
+                    clearInterval(slideInterval);
+                });
+                sliderContainer.addEventListener('mouseleave', () => {
+                    slideInterval = setInterval(() => {
+                        currentIndex = (currentIndex + 1) % testimonialCount;
+                        updateSlider();
+                    }, 5000);
+                });
+            }
+
+            // Back to Top Button
+            const backToTopBtn = document.querySelector('.back-to-top');
+
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn.classList.add('active');
+                } else {
+                    backToTopBtn.classList.remove('active');
+                }
+            });
+
+            // Smooth Scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+                    if (href === '#') return;
+                    const targetId = href;
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // Form Submission
+            const contactForm = document.getElementById('contactForm');
+            const phoneNumber = '5511986386054';
+
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const name = document.getElementById('name').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const subject = document.getElementById('subject').value.trim();
+                    const message = document.getElementById('message').value.trim();
+                    
+                    if (!name || !email || !subject || !message) {
+                        alert('Por favor, preencha todos os campos obrigatórios.');
+                        return;
+                    }
+                    
+                    let whatsappMessage = '*Agradecemos por você ter nos deixado uma mensagem. Logo iremos retornar este contato. Atenciosamente, Jessica Pets.*%0A%0A';
+                    whatsappMessage += '*Nome:* ' + name + '%0A';
+                    whatsappMessage += '*E-mail:* ' + email + '%0A';
+                    if (phone) {
+                        whatsappMessage += '*Telefone:* ' + phone + '%0A';
+                    }
+                    whatsappMessage += '*Assunto:* ' + subject + '%0A%0A';
+                    whatsappMessage += '*Mensagem:*%0A' + message;
+                    
+                    const whatsappUrl = 'https://wa.me/' + phoneNumber + '?text=' + whatsappMessage;
+                    window.open(whatsappUrl, '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
